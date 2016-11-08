@@ -1,0 +1,35 @@
+{
+  "name": "cambios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint src tests",
+    "lint:fix": "node_modules/.bin/eslint src tests --fix",
+    "pretest": "npm run lint",
+    "test": "node_modules/.bin/mocha --recursive --reporter spec --timeout 15000 tests",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests"
+  },
+  "bin": {
+    "releasenotes": "index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "minimist": "^1.2.0",
+    "semver": "^5.3.0",
+    "simple-git": "^1.61.0"
+  },
+  "devDependencies": {
+    "codecov": "^1.0.1",
+    "eslint": "^3.9.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-promise": "^3.3.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "tmp": "0.0.30"
+  }
+}

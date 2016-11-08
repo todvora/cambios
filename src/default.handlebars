@@ -1,0 +1,9 @@
+{{#releases}}
+## {{version}} / {{date}}
+{{#commits}}
+  * {{message}}
+{{/commits}}
+
+Contributors: {{#contributors}}{{name}}{{#unless @last}}, {{/unless}}{{/contributors}}
+
+{{/releases}}
