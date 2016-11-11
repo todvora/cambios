@@ -11,7 +11,7 @@ var getReleaseDate = function (commits) {
 
 var getContributors = function (commits) {
   return commits.reduce((acc, curr) => {
-    if (!acc.some(val => JSON.stringify(val) === JSON.stringify(curr.author))) { //deep equal
+    if (!acc.some(val => JSON.stringify(val) === JSON.stringify(curr.author))) { // deep equal
       acc.push(curr.author);
     }
     return acc;
@@ -19,12 +19,16 @@ var getContributors = function (commits) {
   .sort((a, b) => a.name.localeCompare(b.name));
 };
 
-var filterCommits = function (commits) {
-  return commits
-    .filter(commit => { return !semver.valid(commit.message); }); // skip pure tagging messages
+var filterCommits = function (commits, configuration) {
+  if (configuration.noFilter) {
+    return commits;
+  } else {
+    return commits
+      .filter(commit => { return !semver.valid(commit.message); }); // skip pure tagging messages
+  }
 };
 
-var read = function (commits, headAlias) {
+var read = function (commits, configuration) {
   var data = commits.all.map(commit => {
     var parts = commit.refs
       .trim()
@@ -51,7 +55,7 @@ var read = function (commits, headAlias) {
 
     return result;
   });
-  data[0].tag = headAlias;
+  data[0].tag = configuration.headAlias;
   var currentTag = null;
   data = data.reduce((acc, curr) => {
     if (curr.tag) {
@@ -69,7 +73,7 @@ var read = function (commits, headAlias) {
     return {
       version: release,
       date: getReleaseDate(commits),
-      commits: filterCommits(commits),
+      commits: filterCommits(commits, configuration),
       contributors: getContributors(commits)
     };
   });

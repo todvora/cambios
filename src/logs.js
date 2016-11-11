@@ -1,5 +1,5 @@
-var read = function (path) {
-  var simpleGit = require('simple-git')(path);
+var read = function (configuration) {
+  var simpleGit = require('simple-git')(configuration.path);
   return new Promise((resolve, reject) => {
     var options = {
       format: {

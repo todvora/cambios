@@ -5,7 +5,8 @@ var getDefault = function () {
     path: process.cwd(),
     template: path.join(__dirname, 'default.handlebars'),
     headAlias: 'HEAD',
-    json: false
+    json: false,
+    noFilter: false
   };
 };
 

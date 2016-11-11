@@ -6,7 +6,7 @@ var config = require('./config');
 
 module.exports = function (userConfig) {
   var configuration = config.build(userConfig);
-  return logs(configuration.path)
-    .then(data => transform(data, configuration.headAlias))
+  return logs(configuration)
+    .then(data => transform(data, configuration))
     .then(data => render(data, configuration));
 };

@@ -1,0 +1,16 @@
+language: node_js
+sudo: false
+node_js:
+  - "stable"
+install:
+  - npm install -g codecov
+script:
+  - npm run cover
+  - codecov
+deploy:
+  provider: npm
+  email: todvora@gmail.com
+  api_key:
+    secure: "r41LltDtQaJTBuxC9KK7zN6pjKZIQCeT5MTv4I4YVapAj2ZwLHaMzjLy2ZIVeR8Jmri4yFfc6wV7zUn6Y1T0UB3O5DX2sV8UsVK5rGhZorJhJD85VqUxoxqJIviY+P7p4vp/VtvkvhLnRL4OyjFn9nPWdhq4266CjCMgjcVP9aGtqdIzBm7ZCF5RKSK7bZlQe+KdZn8QsqFAmsYUjLrCVJr+ElkttPyKZ/UI0/CFnuyabjpSUSh/TMDVmS9m5KiRdXwPbNy92BIlkknIZRprqlJlp/cvJPLbE0zXr9opmyMl+vKm/2fgqRH2e05sMmyh6WUASFz9MmrYvV71xZSVReh79aN/OT6j/TxYHGXo2V7bHQuCT6PwGdcu8cuY4xWk6dqm1mhZe9Km0YO+CYYmieyjKqCFec4fsq1p85z+u0zAEBz116IDFrOwPsSdpzsSGmEMIpuTJsjmRQk6SxiMwZ+iJBipTuPRWrenRtWpJw6MJ+9JHszftStFHPP+u6AldcAAHRUXuEIBHw+KSAP5ZehSmdcwTuO7Vnst9oB8mCCSvWOji1/yI22FcXIF0fecntpDhIJsTr9rOHZshNvdWNpMSYhFlmvb/vudkEJlf1NcQDlFAhjnp5Y7SxSQDegQmudavoCNwNDl34/MEj+L3uaQTPsHEyeGAOU9+3Xc2Pk="
+  on:
+    tags: true

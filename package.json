@@ -1,7 +1,7 @@
 {
   "name": "cambios",
   "version": "1.0.0",
-  "description": "",
+  "description": "Yet another changelog generator based on git logs",
   "main": "src/index.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint src tests",
@@ -9,6 +9,15 @@
     "pretest": "npm run lint",
     "test": "node_modules/.bin/mocha --recursive --reporter spec --timeout 15000 tests",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests"
+  },
+  "homepage": "https://github.com/todvora/cambios",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/todvora/cambios.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/todvora/cambios/issues"
   },
   "bin": {
     "releasenotes": "index.js"
@@ -22,7 +31,6 @@
     "simple-git": "^1.61.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
     "eslint": "^3.9.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-json": "^1.2.0",
