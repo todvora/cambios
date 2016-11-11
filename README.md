@@ -1,4 +1,8 @@
 # Yet another changelog generator based on git logs
+
+[![Build Status](https://travis-ci.org/todvora/cambios.svg?branch=master)](https://travis-ci.org/todvora/cambios)
+[![codecov](https://codecov.io/gh/todvora/cambios/branch/master/graph/badge.svg)](https://codecov.io/gh/todvora/cambios)
+
 Yeah, I know, you shouldn't generate changelog based on git logs - commit messages.
 But I think that it's still better to have any changelog than none at all. And you can
 automate it too!
